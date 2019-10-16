@@ -302,9 +302,9 @@
         <ul>
           <li><a href="/categories">All</a></li>
           
-          <li><a href="/categories/hexo1/">hexo1</a></li>
-          
           <li><a href="/categories/tools/">tools</a></li>
+          
+          <li><a href="/categories/hexo1/">hexo1</a></li>
           
         </ul>
       </nav>
@@ -391,6 +391,16 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 </script>
 <script src="/js/insight.js"></script>
 
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:yoursite.com ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
 
 
 
