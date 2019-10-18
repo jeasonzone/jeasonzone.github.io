@@ -18,18 +18,18 @@
   
   
   <title>Vue组件通信 | Jeason-Blog</title>
-  <meta name="description" content="组件通信一般分为以下几种情况：  父子组件通信 兄弟组件通信 跨多层级组件通信 任意组件  对于以上每种情况都有多种方式去实现，接下来就来学习下如何实现。 父子通信父组件通过 props 传递数据给子组件，子组件通过 emit 发送事件传递数据给父组件，这两种方式是最常用的父子通信实现办法。 这种父子通信方式也就是典型的单向数据流，父组件通过 props 传递数据，子组件不能直接修改 props，">
+  <meta name="description" content="&amp;#x7EC4;&amp;#x4EF6;&amp;#x901A;&amp;#x4FE1;&amp;#x4E00;&amp;#x822C;&amp;#x5206;&amp;#x4E3A;&amp;#x4EE5;&amp;#x4E0B;&amp;#x51E0;&amp;#x79CD;&amp;#x60C5;&amp;#x51B5;&amp;#xFF1A;  &amp;#x7236;&amp;#x5B50;&amp;#x7EC4;&amp;#x4EF6;&amp;#x901A;&amp;#x4FE1; &amp;#x5144;&amp;#x5F1F;&amp;#x7EC4;&amp;#x4E">
 <meta name="keywords" content="vue,组件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue组件通信">
 <meta property="og:url" content="http://yoursite.com/2019/10/17/Vue组件通信/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="组件通信一般分为以下几种情况：  父子组件通信 兄弟组件通信 跨多层级组件通信 任意组件  对于以上每种情况都有多种方式去实现，接下来就来学习下如何实现。 父子通信父组件通过 props 传递数据给子组件，子组件通过 emit 发送事件传递数据给父组件，这两种方式是最常用的父子通信实现办法。 这种父子通信方式也就是典型的单向数据流，父组件通过 props 传递数据，子组件不能直接修改 props，">
+<meta property="og:description" content="&amp;#x7EC4;&amp;#x4EF6;&amp;#x901A;&amp;#x4FE1;&amp;#x4E00;&amp;#x822C;&amp;#x5206;&amp;#x4E3A;&amp;#x4EE5;&amp;#x4E0B;&amp;#x51E0;&amp;#x79CD;&amp;#x60C5;&amp;#x51B5;&amp;#xFF1A;  &amp;#x7236;&amp;#x5B50;&amp;#x7EC4;&amp;#x4EF6;&amp;#x901A;&amp;#x4FE1; &amp;#x5144;&amp;#x5F1F;&amp;#x7EC4;&amp;#x4E">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-17T12:35:54.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue组件通信">
-<meta name="twitter:description" content="组件通信一般分为以下几种情况：  父子组件通信 兄弟组件通信 跨多层级组件通信 任意组件  对于以上每种情况都有多种方式去实现，接下来就来学习下如何实现。 父子通信父组件通过 props 传递数据给子组件，子组件通过 emit 发送事件传递数据给父组件，这两种方式是最常用的父子通信实现办法。 这种父子通信方式也就是典型的单向数据流，父组件通过 props 传递数据，子组件不能直接修改 props，">
+<meta name="twitter:description" content="&amp;#x7EC4;&amp;#x4EF6;&amp;#x901A;&amp;#x4FE1;&amp;#x4E00;&amp;#x822C;&amp;#x5206;&amp;#x4E3A;&amp;#x4EE5;&amp;#x4E0B;&amp;#x51E0;&amp;#x79CD;&amp;#x60C5;&amp;#x51B5;&amp;#xFF1A;  &amp;#x7236;&amp;#x5B50;&amp;#x7EC4;&amp;#x4EF6;&amp;#x901A;&amp;#x4FE1; &amp;#x5144;&amp;#x5F1F;&amp;#x7EC4;&amp;#x4E">
   <!-- Canonical links -->
   <link rel="canonical" href="http://yoursite.com/2019/10/17/Vue组件通信/index.html">
   
@@ -217,7 +217,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -227,7 +227,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/apply/">apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/call/">call</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/start/">start</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仓库同步/">仓库同步</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/屏幕缩放/">屏幕缩放</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/手写/">手写</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深拷贝/">深拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/组件/">组件</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/apply/">apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/call/">call</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/start/">start</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仓库同步/">仓库同步</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/屏幕缩放/">屏幕缩放</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/手写/">手写</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/打包/">打包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深拷贝/">深拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/组件/">组件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域/">跨域</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -237,7 +237,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/apply/" style="font-size: 13px;">apply</a> <a href="/tags/bind/" style="font-size: 13px;">bind</a> <a href="/tags/call/" style="font-size: 13px;">call</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/js/" style="font-size: 13px;">js</a> <a href="/tags/start/" style="font-size: 13px;">start</a> <a href="/tags/vue/" style="font-size: 13px;">vue</a> <a href="/tags/仓库同步/" style="font-size: 13px;">仓库同步</a> <a href="/tags/屏幕缩放/" style="font-size: 13px;">屏幕缩放</a> <a href="/tags/手写/" style="font-size: 14px;">手写</a> <a href="/tags/深拷贝/" style="font-size: 13px;">深拷贝</a> <a href="/tags/组件/" style="font-size: 13px;">组件</a>
+      <a href="/tags/apply/" style="font-size: 13px;">apply</a> <a href="/tags/bind/" style="font-size: 13px;">bind</a> <a href="/tags/call/" style="font-size: 13px;">call</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/js/" style="font-size: 13px;">js</a> <a href="/tags/nginx/" style="font-size: 13px;">nginx</a> <a href="/tags/start/" style="font-size: 13px;">start</a> <a href="/tags/vue/" style="font-size: 13px;">vue</a> <a href="/tags/webpack/" style="font-size: 13px;">webpack</a> <a href="/tags/仓库同步/" style="font-size: 13px;">仓库同步</a> <a href="/tags/屏幕缩放/" style="font-size: 13px;">屏幕缩放</a> <a href="/tags/手写/" style="font-size: 14px;">手写</a> <a href="/tags/打包/" style="font-size: 13px;">打包</a> <a href="/tags/深拷贝/" style="font-size: 13px;">深拷贝</a> <a href="/tags/组件/" style="font-size: 13px;">组件</a> <a href="/tags/跨域/" style="font-size: 13px;">跨域</a>
     </div>
   </div>
 
@@ -246,7 +246,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -258,6 +258,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Vue/">Vue</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/18/Vue打包后跨域问题/" class="title">Vue打包后跨域问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-18T12:16:44.405Z" itemprop="datePublished">2019-10-18</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -318,21 +333,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/hexo/">hexo</a>
-              </p>
-              <p class="item-title">
-                <a href="/2019/10/16/俺的博客/" class="title">My Blog</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2019-10-16T01:27:24.090Z" itemprop="datePublished">2019-10-16</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -386,29 +386,29 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>组件通信一般分为以下几种情况：</p>
+        <p>&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;&#x4E00;&#x822C;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;</p>
 <ul>
-<li>父子组件通信</li>
-<li>兄弟组件通信</li>
-<li>跨多层级组件通信</li>
-<li>任意组件</li>
+<li>&#x7236;&#x5B50;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;</li>
+<li>&#x5144;&#x5F1F;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;</li>
+<li>&#x8DE8;&#x591A;&#x5C42;&#x7EA7;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;</li>
+<li>&#x4EFB;&#x610F;&#x7EC4;&#x4EF6;</li>
 </ul>
-<p>对于以上每种情况都有多种方式去实现，接下来就来学习下如何实现。</p>
-<h3 id="父子通信"><a href="#父子通信" class="headerlink" title="父子通信"></a>父子通信</h3><p>父组件通过 <code>props</code> 传递数据给子组件，子组件通过 <code>emit</code> 发送事件传递数据给父组件，这两种方式是最常用的父子通信实现办法。</p>
-<p>这种父子通信方式也就是典型的单向数据流，父组件通过 <code>props</code> 传递数据，子组件不能直接修改 <code>props</code>， 而是必须通过发送事件的方式告知父组件修改数据。</p>
-<p>另外这两种方式还可以使用语法糖 <code>v-model</code> 来直接实现，因为 <code>v-model</code> 默认会解析成名为 <code>value</code> 的 <code>prop</code> 和名为 <code>input</code> 的事件。这种语法糖的方式是典型的双向绑定，常用于 UI 控件上，但是究其根本，还是通过事件的方法让父组件修改数据。</p>
-<p>当然我们还可以通过访问 <code>$parent</code> 或者 <code>$children</code> 对象来访问组件实例中的方法和数据。</p>
-<p>另外如果你使用 Vue 2.3 及以上版本的话还可以使用 <code>$listeners</code> 和 <code>.sync</code> 这两个属性。</p>
-<p><code>$listeners</code> 属性会将父组件中的 (不含 <code>.native</code> 修饰器的) <code>v-on</code> 事件监听器传递给子组件，子组件可以通过访问 <code>$listeners</code> 来自定义监听器。</p>
-<p><code>.sync</code> 属性是个语法糖，可以很简单的实现子组件与父组件通信</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--父组件中--&gt;</span><br><span class="line">&lt;input :value.sync=&quot;value&quot; /&gt;</span><br><span class="line">&lt;!--以上写法等同于--&gt;</span><br><span class="line">&lt;input :value=&quot;value&quot; @update:value=&quot;v =&gt; value = v&quot;&gt;&lt;/comp&gt;</span><br><span class="line">&lt;!--子组件中--&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  this.$emit(&apos;update:value&apos;, 1)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>&#x5BF9;&#x4E8E;&#x4EE5;&#x4E0A;&#x6BCF;&#x79CD;&#x60C5;&#x51B5;&#x90FD;&#x6709;&#x591A;&#x79CD;&#x65B9;&#x5F0F;&#x53BB;&#x5B9E;&#x73B0;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x6765;&#x5B66;&#x4E60;&#x4E0B;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x3002;</p>
+<h3 id="&#x7236;&#x5B50;&#x901A;&#x4FE1;"><a href="#&#x7236;&#x5B50;&#x901A;&#x4FE1;" class="headerlink" title="&#x7236;&#x5B50;&#x901A;&#x4FE1;"></a>&#x7236;&#x5B50;&#x901A;&#x4FE1;</h3><p>&#x7236;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7; <code>props</code> &#x4F20;&#x9012;&#x6570;&#x636E;&#x7ED9;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x5B50;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7; <code>emit</code> &#x53D1;&#x9001;&#x4E8B;&#x4EF6;&#x4F20;&#x9012;&#x6570;&#x636E;&#x7ED9;&#x7236;&#x7EC4;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x6700;&#x5E38;&#x7528;&#x7684;&#x7236;&#x5B50;&#x901A;&#x4FE1;&#x5B9E;&#x73B0;&#x529E;&#x6CD5;&#x3002;</p>
+<p>&#x8FD9;&#x79CD;&#x7236;&#x5B50;&#x901A;&#x4FE1;&#x65B9;&#x5F0F;&#x4E5F;&#x5C31;&#x662F;&#x5178;&#x578B;&#x7684;&#x5355;&#x5411;&#x6570;&#x636E;&#x6D41;&#xFF0C;&#x7236;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7; <code>props</code> &#x4F20;&#x9012;&#x6570;&#x636E;&#xFF0C;&#x5B50;&#x7EC4;&#x4EF6;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x4FEE;&#x6539; <code>props</code>&#xFF0C; &#x800C;&#x662F;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x53D1;&#x9001;&#x4E8B;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#x544A;&#x77E5;&#x7236;&#x7EC4;&#x4EF6;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x53E6;&#x5916;&#x8FD9;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8BED;&#x6CD5;&#x7CD6; <code>v-model</code> &#x6765;&#x76F4;&#x63A5;&#x5B9E;&#x73B0;&#xFF0C;&#x56E0;&#x4E3A; <code>v-model</code> &#x9ED8;&#x8BA4;&#x4F1A;&#x89E3;&#x6790;&#x6210;&#x540D;&#x4E3A; <code>value</code> &#x7684; <code>prop</code> &#x548C;&#x540D;&#x4E3A; <code>input</code> &#x7684;&#x4E8B;&#x4EF6;&#x3002;&#x8FD9;&#x79CD;&#x8BED;&#x6CD5;&#x7CD6;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x5178;&#x578B;&#x7684;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#xFF0C;&#x5E38;&#x7528;&#x4E8E; UI &#x63A7;&#x4EF6;&#x4E0A;&#xFF0C;&#x4F46;&#x662F;&#x7A76;&#x5176;&#x6839;&#x672C;&#xFF0C;&#x8FD8;&#x662F;&#x901A;&#x8FC7;&#x4E8B;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;&#x8BA9;&#x7236;&#x7EC4;&#x4EF6;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x5F53;&#x7136;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBF;&#x95EE; <code>$parent</code> &#x6216;&#x8005; <code>$children</code> &#x5BF9;&#x8C61;&#x6765;&#x8BBF;&#x95EE;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x53E6;&#x5916;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528; Vue 2.3 &#x53CA;&#x4EE5;&#x4E0A;&#x7248;&#x672C;&#x7684;&#x8BDD;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>$listeners</code> &#x548C; <code>.sync</code> &#x8FD9;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x3002;</p>
+<p><code>$listeners</code> &#x5C5E;&#x6027;&#x4F1A;&#x5C06;&#x7236;&#x7EC4;&#x4EF6;&#x4E2D;&#x7684; (&#x4E0D;&#x542B; <code>.native</code> &#x4FEE;&#x9970;&#x5668;&#x7684;) <code>v-on</code> &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#x4F20;&#x9012;&#x7ED9;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x5B50;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBF;&#x95EE; <code>$listeners</code> &#x6765;&#x81EA;&#x5B9A;&#x4E49;&#x76D1;&#x542C;&#x5668;&#x3002;</p>
+<p><code>.sync</code> &#x5C5E;&#x6027;&#x662F;&#x4E2A;&#x8BED;&#x6CD5;&#x7CD6;&#xFF0C;&#x53EF;&#x4EE5;&#x5F88;&#x7B80;&#x5355;&#x7684;&#x5B9E;&#x73B0;&#x5B50;&#x7EC4;&#x4EF6;&#x4E0E;&#x7236;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--&#x7236;&#x7EC4;&#x4EF6;&#x4E2D;--&gt;</span><br><span class="line">&lt;input :value.sync=&quot;value&quot; /&gt;</span><br><span class="line">&lt;!--&#x4EE5;&#x4E0A;&#x5199;&#x6CD5;&#x7B49;&#x540C;&#x4E8E;--&gt;</span><br><span class="line">&lt;input :value=&quot;value&quot; @update:value=&quot;v =&gt; value = v&quot;&gt;&lt;/comp&gt;</span><br><span class="line">&lt;!--&#x5B50;&#x7EC4;&#x4EF6;&#x4E2D;--&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  this.$emit(&apos;update:value&apos;, 1)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="兄弟组件通信"><a href="#兄弟组件通信" class="headerlink" title="兄弟组件通信"></a>兄弟组件通信</h3><p>对于这种情况可以通过查找父组件中的子组件实现，也就是 <code>this.$parent.$children</code>，在 <code>$children</code> 中可以通过组件 <code>name</code> 查询到需要的组件实例，然后进行通信。</p>
-<h3 id="跨多层次组件通信"><a href="#跨多层次组件通信" class="headerlink" title="跨多层次组件通信"></a>跨多层次组件通信</h3><p>对于这种情况可以使用 Vue 2.2 新增的 API <code>provide / inject</code>，虽然文档中不推荐直接使用在业务中，但是如果用得好的话还是很有用的。</p>
-<p>假设有父组件 A，然后有一个跨多层级的子组件 B</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 父组件 A</span><br><span class="line">export default &#123;</span><br><span class="line">  provide: &#123;</span><br><span class="line">    data: 1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 子组件 B</span><br><span class="line">export default &#123;</span><br><span class="line">  inject: [&apos;data&apos;],</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    // 无论跨几层都能获得父组件的 data 属性</span><br><span class="line">    console.log(this.data) // =&gt; 1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="&#x5144;&#x5F1F;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;"><a href="#&#x5144;&#x5F1F;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;" class="headerlink" title="&#x5144;&#x5F1F;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;"></a>&#x5144;&#x5F1F;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;</h3><p>&#x5BF9;&#x4E8E;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x67E5;&#x627E;&#x7236;&#x7EC4;&#x4EF6;&#x4E2D;&#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#x5B9E;&#x73B0;&#xFF0C;&#x4E5F;&#x5C31;&#x662F; <code>this.$parent.$children</code>&#xFF0C;&#x5728; <code>$children</code> &#x4E2D;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7EC4;&#x4EF6; <code>name</code> &#x67E5;&#x8BE2;&#x5230;&#x9700;&#x8981;&#x7684;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x3002;</p>
+<h3 id="&#x8DE8;&#x591A;&#x5C42;&#x6B21;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;"><a href="#&#x8DE8;&#x591A;&#x5C42;&#x6B21;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;" class="headerlink" title="&#x8DE8;&#x591A;&#x5C42;&#x6B21;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;"></a>&#x8DE8;&#x591A;&#x5C42;&#x6B21;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;</h3><p>&#x5BF9;&#x4E8E;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; Vue 2.2 &#x65B0;&#x589E;&#x7684; API <code>provide / inject</code>&#xFF0C;&#x867D;&#x7136;&#x6587;&#x6863;&#x4E2D;&#x4E0D;&#x63A8;&#x8350;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5728;&#x4E1A;&#x52A1;&#x4E2D;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x7528;&#x5F97;&#x597D;&#x7684;&#x8BDD;&#x8FD8;&#x662F;&#x5F88;&#x6709;&#x7528;&#x7684;&#x3002;</p>
+<p>&#x5047;&#x8BBE;&#x6709;&#x7236;&#x7EC4;&#x4EF6; A&#xFF0C;&#x7136;&#x540E;&#x6709;&#x4E00;&#x4E2A;&#x8DE8;&#x591A;&#x5C42;&#x7EA7;&#x7684;&#x5B50;&#x7EC4;&#x4EF6; B</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// &#x7236;&#x7EC4;&#x4EF6; A</span><br><span class="line">export default {</span><br><span class="line">  provide: {</span><br><span class="line">    data: 1</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line">// &#x5B50;&#x7EC4;&#x4EF6; B</span><br><span class="line">export default {</span><br><span class="line">  inject: [&apos;data&apos;],</span><br><span class="line">  mounted() {</span><br><span class="line">    // &#x65E0;&#x8BBA;&#x8DE8;&#x51E0;&#x5C42;&#x90FD;&#x80FD;&#x83B7;&#x5F97;&#x7236;&#x7EC4;&#x4EF6;&#x7684; data &#x5C5E;&#x6027;</span><br><span class="line">    console.log(this.data) // =&gt; 1</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
-<h3 id="任意组件"><a href="#任意组件" class="headerlink" title="任意组件"></a>任意组件</h3><p>这种方式可以通过 Vuex 或者 Event Bus 解决，另外如果你不怕麻烦的话，可以使用这种方式解决上述所有的通信情况</p>
+<h3 id="&#x4EFB;&#x610F;&#x7EC4;&#x4EF6;"><a href="#&#x4EFB;&#x610F;&#x7EC4;&#x4EF6;" class="headerlink" title="&#x4EFB;&#x610F;&#x7EC4;&#x4EF6;"></a>&#x4EFB;&#x610F;&#x7EC4;&#x4EF6;</h3><p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; Vuex &#x6216;&#x8005; Event Bus &#x89E3;&#x51B3;&#xFF0C;&#x53E6;&#x5916;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x6015;&#x9EBB;&#x70E6;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x89E3;&#x51B3;&#x4E0A;&#x8FF0;&#x6240;&#x6709;&#x7684;&#x901A;&#x4FE1;&#x60C5;&#x51B5;</p>
 
       
     </div>
