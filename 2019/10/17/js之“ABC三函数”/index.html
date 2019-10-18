@@ -17,16 +17,21 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>分类: tools | Jeason-Blog</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/categories/tools/index.html">
+  <title>js之“ABC三函数” | Jeason-Blog</title>
+  <meta name="description" content="call、apply 及 bind 函数内部实现是怎么样的？首先从以下几点来考虑如何实现这几个函数  不传入第一个参数，那么上下文默认为 window 改变了 this 指向，让新的对象可以执行该函数，并能接受参数  call的实现：1234567891011Function.prototype.myCall = function(context) &amp;#123;  if (typeof this">
+<meta name="keywords" content="apply,bind,call,手写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js之“ABC三函数”">
+<meta property="og:url" content="http://yoursite.com/2019/10/17/js之“ABC三函数”/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="call、apply 及 bind 函数内部实现是怎么样的？首先从以下几点来考虑如何实现这几个函数  不传入第一个参数，那么上下文默认为 window 改变了 this 指向，让新的对象可以执行该函数，并能接受参数  call的实现：1234567891011Function.prototype.myCall = function(context) &amp;#123;  if (typeof this">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-17T12:51:25.250Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="js之“ABC三函数”">
+<meta name="twitter:description" content="call、apply 及 bind 函数内部实现是怎么样的？首先从以下几点来考虑如何实现这几个函数  不传入第一个参数，那么上下文默认为 window 改变了 this 指向，让新的对象可以执行该函数，并能接受参数  call的实现：1234567891011Function.prototype.myCall = function(context) &amp;#123;  if (typeof this">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/categories/tools/index.html">
+  <link rel="canonical" href="http://yoursite.com/2019/10/17/js之“ABC三函数”/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -338,57 +343,203 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="content article article-categories article-type-list" itemscope="">
-    <header class="article-header">
-      <h1 itemprop="name" class="hidden-xs">分类: tools</h1>
-      <p class="hidden-xs">共 1 篇文章</p>
-      <nav role="navigation" id="nav-main" class="okayNav">
-        <ul>
-          <li><a href="/categories">All</a></li>
-          
-          <li><a href="/categories/Vue/">Vue</a></li>
-          
-          <li><a href="/categories/tools/">tools</a></li>
-          
-          <li><a href="/categories/hexo/">hexo</a></li>
-          
-          <li><a href="/categories/JS/">JS</a></li>
-          
-        </ul>
-      </nav>
-    </header>
-    <!-- /header -->
-    <div class="article-body">
-      <div class="panel panel-default b-no">
-    <div class="panel-heading" role="tab">
-        <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapsetools" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              tools
-            </a>
-            <small class="text-muted">(Total 1 articles)</small>
-        </h4>
-    </div>
-    <div id="collapsetools" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingtools">
-        <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/2019/10/15/GIT简单教程/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-10-15T12:54:28.764Z" itemprop="datePublished">2019-10-15</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Git简单教程
-</a>
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-js之“ABC三函数”" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js之“ABC三函数”
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/10/17/js之“ABC三函数”/" class="article-date">
+	  <time datetime="2019-10-17T12:46:01.418Z" itemprop="datePublished">2019-10-17</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/apply/">apply</a>, <a class="article-tag-link" href="/tags/bind/">bind</a>, <a class="article-tag-link" href="/tags/call/">call</a>, <a class="article-tag-link" href="/tags/手写/">手写</a>
+  </span>
 
 
-              
-            </div>
-        </div>
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/17/js之“ABC三函数”/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
     </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h5 id="call、apply-及-bind-函数内部实现是怎么样的？"><a href="#call、apply-及-bind-函数内部实现是怎么样的？" class="headerlink" title="call、apply 及 bind 函数内部实现是怎么样的？"></a>call、apply 及 bind 函数内部实现是怎么样的？</h5><p>首先从以下几点来考虑如何实现这几个函数</p>
+<ul>
+<li>不传入第一个参数，那么上下文默认为 <code>window</code></li>
+<li>改变了 <code>this</code> 指向，让新的对象可以执行该函数，并能接受参数</li>
+</ul>
+<h6 id="call的实现："><a href="#call的实现：" class="headerlink" title="call的实现："></a>call的实现：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.myCall = function(context) &#123;</span><br><span class="line">  if (typeof this !== &apos;function&apos;) &#123;</span><br><span class="line">    throw new TypeError(&apos;Error&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">  context = context || window</span><br><span class="line">  context.fn = this</span><br><span class="line">  const args = [...arguments].slice(1)</span><br><span class="line">  const result = context.fn(...args)</span><br><span class="line">  delete context.fn</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以下是对实现的分析：</p>
+<ul>
+<li>首先 <code>context</code> 为可选参数，如果不传的话默认上下文为 <code>window</code></li>
+<li>接下来给 <code>context</code> 创建一个 <code>fn</code> 属性，并将值设置为需要调用的函数</li>
+<li>因为 <code>call</code> 可以传入多个参数作为调用函数的参数，所以需要将参数剥离出来</li>
+<li>然后调用函数并将对象上的函数删除</li>
+</ul>
+<p>apply` 的实现也类似于call，区别在于对<strong>参数的处理</strong>，暂不一一分析。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.myApply = function(context) &#123;</span><br><span class="line">  if (typeof this !== &apos;function&apos;) &#123;</span><br><span class="line">    throw new TypeError(&apos;Error&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">  context = context || window</span><br><span class="line">  context.fn = this</span><br><span class="line">  let result</span><br><span class="line">  // 处理参数和 call 有区别</span><br><span class="line">  if (arguments[1]) &#123;</span><br><span class="line">    result = context.fn(...arguments[1])</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    result = context.fn()</span><br><span class="line">  &#125;</span><br><span class="line">  delete context.fn</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>bind<code>的实现对比其他两个函数略微地复杂了一点，因为</code>bind<code>需要返回一个函数，需要判断一些边界问题，以下是</code>bind` 的实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.myBind = function (context) &#123;</span><br><span class="line">  if (typeof this !== &apos;function&apos;) &#123;</span><br><span class="line">    throw new TypeError(&apos;Error&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">  const _this = this</span><br><span class="line">  const args = [...arguments].slice(1)</span><br><span class="line">  // 返回一个函数</span><br><span class="line">  return function F() &#123;</span><br><span class="line">    // 因为返回了一个函数，我们可以 new F()，所以需要判断</span><br><span class="line">    if (this instanceof F) &#123;</span><br><span class="line">      return new _this(...args, ...arguments)</span><br><span class="line">    &#125;</span><br><span class="line">    return _this.apply(context, args.concat(...arguments))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以下是对实现的分析：</p>
+<ul>
+<li>前几步和之前的实现差不多，就不赘述了</li>
+<li><code>bind</code> 返回了一个函数，对于函数来说有两种方式调用，一种是直接调用，一种是通过 <code>new</code> 的方式，我们先来说直接调用的方式</li>
+<li>对于直接调用来说，这里选择了 <code>apply</code> 的方式实现，但是对于参数需要注意以下情况：因为 <code>bind</code> 可以实现类似这样的代码 <code>f.bind(obj, 1)(2)</code>，所以我们需要将两边的参数拼接起来，于是就有了这样的实现 <code>args.concat(...arguments)</code></li>
+<li>最后来说通过 <code>new</code> 的方式，在之前的章节中我们学习过如何判断 <code>this</code>，对于 <code>new</code> 的情况来说，不会被任何方式改变 <code>this</code>，所以对于这种情况我们需要忽略传入的 <code>this</code> </li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2019/10/17/js之“ABC三函数”/" title="js之“ABC三函数”" target="_blank" rel="external">http://yoursite.com/2019/10/17/js之“ABC三函数”/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/jeasonzone" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/jeasonzone" target="_blank"><span class="text-dark">Jeason</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
 </div>
+
+
     </div>
   </article>
-   
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/10/18/Vue-移动端控制屏幕缩放/" title="Vue-移动端控制屏幕缩放"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/10/17/js之“深拷贝”/" title="js之“深拷贝”"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -453,6 +604,37 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 

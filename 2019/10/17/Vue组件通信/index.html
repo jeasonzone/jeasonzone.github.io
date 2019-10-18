@@ -17,16 +17,21 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>分类: tools | Jeason-Blog</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/categories/tools/index.html">
+  <title>Vue组件通信 | Jeason-Blog</title>
+  <meta name="description" content="组件通信一般分为以下几种情况：  父子组件通信 兄弟组件通信 跨多层级组件通信 任意组件  对于以上每种情况都有多种方式去实现，接下来就来学习下如何实现。 父子通信父组件通过 props 传递数据给子组件，子组件通过 emit 发送事件传递数据给父组件，这两种方式是最常用的父子通信实现办法。 这种父子通信方式也就是典型的单向数据流，父组件通过 props 传递数据，子组件不能直接修改 props，">
+<meta name="keywords" content="vue,组件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue组件通信">
+<meta property="og:url" content="http://yoursite.com/2019/10/17/Vue组件通信/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="组件通信一般分为以下几种情况：  父子组件通信 兄弟组件通信 跨多层级组件通信 任意组件  对于以上每种情况都有多种方式去实现，接下来就来学习下如何实现。 父子通信父组件通过 props 传递数据给子组件，子组件通过 emit 发送事件传递数据给父组件，这两种方式是最常用的父子通信实现办法。 这种父子通信方式也就是典型的单向数据流，父组件通过 props 传递数据，子组件不能直接修改 props，">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-17T12:35:54.273Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Vue组件通信">
+<meta name="twitter:description" content="组件通信一般分为以下几种情况：  父子组件通信 兄弟组件通信 跨多层级组件通信 任意组件  对于以上每种情况都有多种方式去实现，接下来就来学习下如何实现。 父子通信父组件通过 props 传递数据给子组件，子组件通过 emit 发送事件传递数据给父组件，这两种方式是最常用的父子通信实现办法。 这种父子通信方式也就是典型的单向数据流，父组件通过 props 传递数据，子组件不能直接修改 props，">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/categories/tools/index.html">
+  <link rel="canonical" href="http://yoursite.com/2019/10/17/Vue组件通信/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -338,57 +343,199 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="content article article-categories article-type-list" itemscope="">
-    <header class="article-header">
-      <h1 itemprop="name" class="hidden-xs">分类: tools</h1>
-      <p class="hidden-xs">共 1 篇文章</p>
-      <nav role="navigation" id="nav-main" class="okayNav">
-        <ul>
-          <li><a href="/categories">All</a></li>
-          
-          <li><a href="/categories/Vue/">Vue</a></li>
-          
-          <li><a href="/categories/tools/">tools</a></li>
-          
-          <li><a href="/categories/hexo/">hexo</a></li>
-          
-          <li><a href="/categories/JS/">JS</a></li>
-          
-        </ul>
-      </nav>
-    </header>
-    <!-- /header -->
-    <div class="article-body">
-      <div class="panel panel-default b-no">
-    <div class="panel-heading" role="tab">
-        <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapsetools" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              tools
-            </a>
-            <small class="text-muted">(Total 1 articles)</small>
-        </h4>
-    </div>
-    <div id="collapsetools" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingtools">
-        <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/2019/10/15/GIT简单教程/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-10-15T12:54:28.764Z" itemprop="datePublished">2019-10-15</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Git简单教程
-</a>
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Vue组件通信" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue组件通信
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/10/17/Vue组件通信/" class="article-date">
+	  <time datetime="2019-10-17T12:29:02.895Z" itemprop="datePublished">2019-10-17</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/vue/">vue</a>, <a class="article-tag-link" href="/tags/组件/">组件</a>
+  </span>
 
 
-              
-            </div>
-        </div>
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/17/Vue组件通信/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
     </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>组件通信一般分为以下几种情况：</p>
+<ul>
+<li>父子组件通信</li>
+<li>兄弟组件通信</li>
+<li>跨多层级组件通信</li>
+<li>任意组件</li>
+</ul>
+<p>对于以上每种情况都有多种方式去实现，接下来就来学习下如何实现。</p>
+<h3 id="父子通信"><a href="#父子通信" class="headerlink" title="父子通信"></a>父子通信</h3><p>父组件通过 <code>props</code> 传递数据给子组件，子组件通过 <code>emit</code> 发送事件传递数据给父组件，这两种方式是最常用的父子通信实现办法。</p>
+<p>这种父子通信方式也就是典型的单向数据流，父组件通过 <code>props</code> 传递数据，子组件不能直接修改 <code>props</code>， 而是必须通过发送事件的方式告知父组件修改数据。</p>
+<p>另外这两种方式还可以使用语法糖 <code>v-model</code> 来直接实现，因为 <code>v-model</code> 默认会解析成名为 <code>value</code> 的 <code>prop</code> 和名为 <code>input</code> 的事件。这种语法糖的方式是典型的双向绑定，常用于 UI 控件上，但是究其根本，还是通过事件的方法让父组件修改数据。</p>
+<p>当然我们还可以通过访问 <code>$parent</code> 或者 <code>$children</code> 对象来访问组件实例中的方法和数据。</p>
+<p>另外如果你使用 Vue 2.3 及以上版本的话还可以使用 <code>$listeners</code> 和 <code>.sync</code> 这两个属性。</p>
+<p><code>$listeners</code> 属性会将父组件中的 (不含 <code>.native</code> 修饰器的) <code>v-on</code> 事件监听器传递给子组件，子组件可以通过访问 <code>$listeners</code> 来自定义监听器。</p>
+<p><code>.sync</code> 属性是个语法糖，可以很简单的实现子组件与父组件通信</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--父组件中--&gt;</span><br><span class="line">&lt;input :value.sync=&quot;value&quot; /&gt;</span><br><span class="line">&lt;!--以上写法等同于--&gt;</span><br><span class="line">&lt;input :value=&quot;value&quot; @update:value=&quot;v =&gt; value = v&quot;&gt;&lt;/comp&gt;</span><br><span class="line">&lt;!--子组件中--&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  this.$emit(&apos;update:value&apos;, 1)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="兄弟组件通信"><a href="#兄弟组件通信" class="headerlink" title="兄弟组件通信"></a>兄弟组件通信</h3><p>对于这种情况可以通过查找父组件中的子组件实现，也就是 <code>this.$parent.$children</code>，在 <code>$children</code> 中可以通过组件 <code>name</code> 查询到需要的组件实例，然后进行通信。</p>
+<h3 id="跨多层次组件通信"><a href="#跨多层次组件通信" class="headerlink" title="跨多层次组件通信"></a>跨多层次组件通信</h3><p>对于这种情况可以使用 Vue 2.2 新增的 API <code>provide / inject</code>，虽然文档中不推荐直接使用在业务中，但是如果用得好的话还是很有用的。</p>
+<p>假设有父组件 A，然后有一个跨多层级的子组件 B</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 父组件 A</span><br><span class="line">export default &#123;</span><br><span class="line">  provide: &#123;</span><br><span class="line">    data: 1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 子组件 B</span><br><span class="line">export default &#123;</span><br><span class="line">  inject: [&apos;data&apos;],</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    // 无论跨几层都能获得父组件的 data 属性</span><br><span class="line">    console.log(this.data) // =&gt; 1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="任意组件"><a href="#任意组件" class="headerlink" title="任意组件"></a>任意组件</h3><p>这种方式可以通过 Vuex 或者 Event Bus 解决，另外如果你不怕麻烦的话，可以使用这种方式解决上述所有的通信情况</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2019/10/17/Vue组件通信/" title="Vue组件通信" target="_blank" rel="external">http://yoursite.com/2019/10/17/Vue组件通信/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/jeasonzone" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/jeasonzone" target="_blank"><span class="text-dark">Jeason</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
 </div>
+
+
     </div>
   </article>
-   
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/10/17/js之“深拷贝”/" title="js之“深拷贝”"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/10/16/俺的博客/" title="My Blog"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -453,6 +600,37 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
