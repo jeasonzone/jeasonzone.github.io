@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-10T06:08:56.237Z</updated>
+  <updated>2019-11-16T05:31:44.122Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端面经-做个面霸</title>
+    <link href="http://yoursite.com/2019/11/16/%E5%89%8D%E7%AB%AF%E9%9D%A2%E7%BB%8F-%E5%81%9A%E4%B8%AA%E9%9D%A2%E9%9C%B8/"/>
+    <id>http://yoursite.com/2019/11/16/前端面经-做个面霸/</id>
+    <published>2019-11-16T05:18:49.000Z</published>
+    <updated>2019-11-16T05:31:44.122Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="&#x85CF;&#x7ECF;&#x9601;&#x2014;&#x2014;-&#x9762;&#x7ECF;"><a href="#&#x85CF;&#x7ECF;&#x9601;&#x2014;&#x2014;-&#x9762;&#x7ECF;" class="headerlink" title="&#x85CF;&#x7ECF;&#x9601;&#x2014;&#x2014;-&#x9762;&#x7ECF;"></a>&#x85CF;&#x7ECF;&#x9601;&#x2014;&#x2014;-&#x9762;&#x7ECF;</h1><h2 id="&#x539F;&#x59CB;&#x503C;&#x548C;&#x5F15;&#x7528;&#x503C;&#x7C7B;&#x578B;&#x53CA;&#x533A;&#x522B;"><a href="#&#x539F;&#x59CB;&#x503C;&#x548C;&#x5F15;&#x7528;&#x503C;&#x7C7B;&#x578B;&#x53CA;&#x533A;&#x522B;" class="headerlink" title="&#x539F;&#x59CB;&#x503C;&#x548C;&#x5F15;&#x7528;&#x503C;&#x7C7B;&#x578B;&#x53CA;&#x533A;&#x522B;"></a>&#x539F;&#x59CB;&#x503C;&#x548C;&#x5F15;&#x7528;&#x503C;&#x7C7B;&#x578B;&#x53CA;&#x533A;&#x522B;</h2><p>&#x539F;&#x59CB;&#x503C;&#xFF1A;</p><blockquote><p> &#x5B58;&#x50A8;&#x5728;&#x6808;&#xFF08;stack&#xFF09;&#x4E2D;&#x7684;&#x7B80;&#x5355;&#x6570;&#x636E;&#x6BB5;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x503C;&#x76F4;&#x63A5;&#x5B58;&#x50A8;&#x5728;&#x53D8;&#x91CF;&#x8BBF;&#x95EE;&#x7684;&#x4F4D;&#x7F6E; </p></blockquote><p>&#x200B;       &#x5728; JS &#x4E2D;&#xFF0C;&#x5B58;&#x5728;&#x7740; 6 &#x79CD;&#x539F;&#x59CB;&#x503C;&#xFF0C;&#x5206;&#x522B;&#x662F;&#xFF1A;</p><ul><li><code>boolean</code></li><li><code>null</code></li><li><code>undefined</code></li><li><code>number</code></li><li><code>string</code></li><li><code>symbol</code></li></ul><p>&#x5F15;&#x7528;&#x503C;&#x7C7B;&#x578B;&#xFF1A;</p><blockquote><p>  &#x5B58;&#x50A8;&#x5728;&#x5806;&#xFF08;heap&#xFF09;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5B58;&#x50A8;&#x5728;&#x53D8;&#x91CF;&#x5904;&#x7684;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#xFF08;point&#xFF09;&#xFF0C;&#x6307;&#x5411;&#x5B58;&#x50A8;&#x5BF9;&#x8C61;&#x7684;&#x5185;&#x5B58;&#x5904; </p></blockquote><p><img src="/2019/11/16/&#x524D;&#x7AEF;&#x9762;&#x7ECF;-&#x505A;&#x4E2A;&#x9762;&#x9738;/1.jpg" alt></p><h2 id="&#x5224;&#x65AD;&#x6570;&#x636E;&#x7C7B;&#x578B;"><a href="#&#x5224;&#x65AD;&#x6570;&#x636E;&#x7C7B;&#x578B;" class="headerlink" title="&#x5224;&#x65AD;&#x6570;&#x636E;&#x7C7B;&#x578B;"></a>&#x5224;&#x65AD;&#x6570;&#x636E;&#x7C7B;&#x578B;</h2><h2 id="typeof&#x3001;instanceof&#x3001;Object-prototype-toString-call-&#x3001;constructor"><a href="#typeof&#x3001;instanceof&#x3001;Object-prototype-toString-call-&#x3001;constructor" class="headerlink" title="typeof&#x3001;instanceof&#x3001;Object.prototype.toString.call()&#x3001;constructor"></a>typeof&#x3001;instanceof&#x3001;Object.prototype.toString.call()&#x3001;constructor</h2><p>typeof&#xFF1A;</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">console.log(typeof 2);               // number</span><br><span class="line">console.log(typeof true);            // boolean</span><br><span class="line">console.log(typeof &apos;str&apos;);           // string</span><br><span class="line">console.log(typeof []);              // object     []&#x6570;&#x7EC4;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5728; typeof &#x4E2D;&#x88AB;&#x89E3;&#x91CA;&#x4E3A; object</span><br><span class="line">console.log(typeof function(){});    // function</span><br><span class="line">console.log(typeof {});              // object</span><br><span class="line">console.log(typeof undefined);       // undefined</span><br><span class="line">console.log(typeof null);            // object     null &#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x88AB; typeof &#x89E3;&#x91CA;&#x4E3A; object</span><br></pre></td></tr></table></figure><p>&#x5982;&#x4E0A;&#x56FE;&#xFF1A;</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;&amp;#x85CF;&amp;#x7ECF;&amp;#x9601;&amp;#x2014;&amp;#x2014;-&amp;#x9762;&amp;#x7ECF;&quot;&gt;&lt;a href=&quot;#&amp;#x85CF;&amp;#x7ECF;&amp;#x9601;&amp;#x2014;&amp;#x2014;-&amp;#x9762;&amp;#x7ECF;&quot; clas
+      
+    
+    </summary>
+    
+    
+      <category term="tools" scheme="http://yoursite.com/categories/tools/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>恩特打印</title>
@@ -295,13 +319,13 @@
       <category term="JS" scheme="http://yoursite.com/categories/JS/"/>
     
     
+      <category term="手写" scheme="http://yoursite.com/tags/%E6%89%8B%E5%86%99/"/>
+    
       <category term="apply" scheme="http://yoursite.com/tags/apply/"/>
     
       <category term="bind" scheme="http://yoursite.com/tags/bind/"/>
     
       <category term="call" scheme="http://yoursite.com/tags/call/"/>
-    
-      <category term="手写" scheme="http://yoursite.com/tags/%E6%89%8B%E5%86%99/"/>
     
   </entry>
   
@@ -329,9 +353,9 @@
     
       <category term="js" scheme="http://yoursite.com/tags/js/"/>
     
-      <category term="手写" scheme="http://yoursite.com/tags/%E6%89%8B%E5%86%99/"/>
-    
       <category term="深拷贝" scheme="http://yoursite.com/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
+    
+      <category term="手写" scheme="http://yoursite.com/tags/%E6%89%8B%E5%86%99/"/>
     
   </entry>
   
