@@ -17,16 +17,20 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>归档: 2019/11 | Jeason-Blog</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://jeasonzone.github.io/archives/2019/11/index.html">
+  <title>在Vue中封装axios | Jeason-Blog</title>
+  <meta name="description" content="&amp;#x5728;Vue&amp;#x4E2D;&amp;#x5C01;&amp;#x88C5;axios&amp;#x5728;vue&amp;#x5DE5;&amp;#x7A0B;&amp;#x4E2D;&amp;#x63D0;&amp;#x5021;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x7684;&amp;#x601D;&amp;#x60F3;&amp;#xFF0C;&amp;#x4EE5;&amp;#x63D0;&amp;#x9AD8;&amp;#x4EE3;&amp;#x7801;&amp;#x7684;&amp;#x53">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Vue中封装axios">
+<meta property="og:url" content="https://jeasonzone.github.io/2019/12/01/在Vue中封装axios/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&amp;#x5728;Vue&amp;#x4E2D;&amp;#x5C01;&amp;#x88C5;axios&amp;#x5728;vue&amp;#x5DE5;&amp;#x7A0B;&amp;#x4E2D;&amp;#x63D0;&amp;#x5021;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x7684;&amp;#x601D;&amp;#x60F3;&amp;#xFF0C;&amp;#x4EE5;&amp;#x63D0;&amp;#x9AD8;&amp;#x4EE3;&amp;#x7801;&amp;#x7684;&amp;#x53">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-01T06:13:12.654Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="在Vue中封装axios">
+<meta name="twitter:description" content="&amp;#x5728;Vue&amp;#x4E2D;&amp;#x5C01;&amp;#x88C5;axios&amp;#x5728;vue&amp;#x5DE5;&amp;#x7A0B;&amp;#x4E2D;&amp;#x63D0;&amp;#x5021;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x7684;&amp;#x601D;&amp;#x60F3;&amp;#xFF0C;&amp;#x4EE5;&amp;#x63D0;&amp;#x9AD8;&amp;#x4EE3;&amp;#x7801;&amp;#x7684;&amp;#x53">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://jeasonzone.github.io/archives/2019/11/index.html">
+  <link rel="canonical" href="https://jeasonzone.github.io/2019/12/01/在Vue中封装axios/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -344,78 +348,181 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档: 2019/11</h1>
-	      <p class="text-muted">共 4 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
+  <div class="content">
+  <article id="post-在Vue中封装axios" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
   
+    <h1 class="article-title" itemprop="name">
+      在Vue中封装axios
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/12/01/在Vue中封装axios/" class="article-date">
+	  <time datetime="2019-12-01T05:40:19.000Z" itemprop="datePublished">2019-12-01</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </span>
+
+        
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/01/在Vue中封装axios/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="&#x5728;Vue&#x4E2D;&#x5C01;&#x88C5;axios"><a href="#&#x5728;Vue&#x4E2D;&#x5C01;&#x88C5;axios" class="headerlink" title="&#x5728;Vue&#x4E2D;&#x5C01;&#x88C5;axios"></a>&#x5728;Vue&#x4E2D;&#x5C01;&#x88C5;axios</h2><h6 id="&#x5728;vue&#x5DE5;&#x7A0B;&#x4E2D;&#x63D0;&#x5021;&#x6A21;&#x5757;&#x5316;&#x7684;&#x601D;&#x60F3;&#xFF0C;&#x4EE5;&#x63D0;&#x9AD8;&#x4EE3;&#x7801;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x548C;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#xFF0C;&#x5176;&#x4E2D;&#x4F53;&#x73B0;&#x51FA;&#x4E86;&#x7F16;&#x7A0B;&#x8005;&#x5E94;&#x6709;&#x7684;&#x7F16;&#x7A0B;&#x98CE;&#x8303;&#xFF0C;&#x51FA;&#x4E8E;&#x4E2A;&#x4EBA;&#x4E60;&#x60EF;&#xFF0C;&#x5177;&#x4F53;&#x64CD;&#x4F5C;&#x5982;&#x4E0B;&#xFF1A;"><a href="#&#x5728;vue&#x5DE5;&#x7A0B;&#x4E2D;&#x63D0;&#x5021;&#x6A21;&#x5757;&#x5316;&#x7684;&#x601D;&#x60F3;&#xFF0C;&#x4EE5;&#x63D0;&#x9AD8;&#x4EE3;&#x7801;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x548C;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#xFF0C;&#x5176;&#x4E2D;&#x4F53;&#x73B0;&#x51FA;&#x4E86;&#x7F16;&#x7A0B;&#x8005;&#x5E94;&#x6709;&#x7684;&#x7F16;&#x7A0B;&#x98CE;&#x8303;&#xFF0C;&#x51FA;&#x4E8E;&#x4E2A;&#x4EBA;&#x4E60;&#x60EF;&#xFF0C;&#x5177;&#x4F53;&#x64CD;&#x4F5C;&#x5982;&#x4E0B;&#xFF1A;" class="headerlink" title="&#x5728;vue&#x5DE5;&#x7A0B;&#x4E2D;&#x63D0;&#x5021;&#x6A21;&#x5757;&#x5316;&#x7684;&#x601D;&#x60F3;&#xFF0C;&#x4EE5;&#x63D0;&#x9AD8;&#x4EE3;&#x7801;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x548C;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#xFF0C;&#x5176;&#x4E2D;&#x4F53;&#x73B0;&#x51FA;&#x4E86;&#x7F16;&#x7A0B;&#x8005;&#x5E94;&#x6709;&#x7684;&#x7F16;&#x7A0B;&#x98CE;&#x8303;&#xFF0C;&#x51FA;&#x4E8E;&#x4E2A;&#x4EBA;&#x4E60;&#x60EF;&#xFF0C;&#x5177;&#x4F53;&#x64CD;&#x4F5C;&#x5982;&#x4E0B;&#xFF1A;"></a>&#x5728;vue&#x5DE5;&#x7A0B;&#x4E2D;&#x63D0;&#x5021;&#x6A21;&#x5757;&#x5316;&#x7684;&#x601D;&#x60F3;&#xFF0C;&#x4EE5;&#x63D0;&#x9AD8;&#x4EE3;&#x7801;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x548C;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#xFF0C;&#x5176;&#x4E2D;&#x4F53;&#x73B0;&#x51FA;&#x4E86;&#x7F16;&#x7A0B;&#x8005;&#x5E94;&#x6709;&#x7684;&#x7F16;&#x7A0B;&#x98CE;&#x8303;&#xFF0C;&#x51FA;&#x4E8E;&#x4E2A;&#x4EBA;&#x4E60;&#x60EF;&#xFF0C;&#x5177;&#x4F53;&#x64CD;&#x4F5C;&#x5982;&#x4E0B;&#xFF1A;</h6><h4 id="1-&#x521B;&#x5EFA;axios-js&#x6587;&#x4EF6;"><a href="#1-&#x521B;&#x5EFA;axios-js&#x6587;&#x4EF6;" class="headerlink" title="1.&#x521B;&#x5EFA;axios.js&#x6587;&#x4EF6;"></a>1.&#x521B;&#x5EFA;axios.js&#x6587;&#x4EF6;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import axios from &apos;axios&apos;;//&#x6BCB;&#x5EB8;&#x7F6E;&#x7591;&#xFF0C;&#x5148;&#x5F15;&#x5165;axios&#x4F9D;&#x8D56;&#x5E93;</span><br><span class="line"></span><br><span class="line">axios.interceptors.response.use(</span><br><span class="line">	res=&gt;{</span><br><span class="line">		return res.data;</span><br><span class="line">	},</span><br><span class="line">	error=&gt;{</span><br><span class="line">		return Promise.reject(error)</span><br><span class="line">	}</span><br><span class="line">);//&#x521B;&#x5EFA;axios&#x7684;&#x62E6;&#x622A;&#x5668;</span><br><span class="line"></span><br><span class="line">export default{</span><br><span class="line">	post:function(url=&quot;&quot;,data={},config){</span><br><span class="line">		return axios.post(url,data,config);</span><br><span class="line">	},</span><br><span class="line">	put:function(url=&quot;&quot;,data={},config){</span><br><span class="line">		return axios.put(url,data,config);</span><br><span class="line">	}</span><br><span class="line">	get:function(url,params={},config){</span><br><span class="line">		let options=Object.assign({params},config);</span><br><span class="line">		return axios.get(url,options);</span><br><span class="line">	}</span><br><span class="line">	delete:function(url=&quot;&quot;,params={},config){</span><br><span class="line">		let options=Object.assign({params},config);</span><br><span class="line">		return axios.delete(url,options);</span><br><span class="line">	}</span><br><span class="line">}//&#x5F53;&#x7136;&#x5C31;&#x662F;&#x4F60;&#x8981;&#x5BFC;&#x51FA;&#x4F60;&#x5C01;&#x88C5;&#x7684;&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;&#x4E86;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-&#x521B;&#x5EFA;api-js&#x6587;&#x4EF6;"><a href="#2-&#x521B;&#x5EFA;api-js&#x6587;&#x4EF6;" class="headerlink" title="2.&#x521B;&#x5EFA;api.js&#x6587;&#x4EF6;"></a>2.&#x521B;&#x5EFA;api.js&#x6587;&#x4EF6;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const API=&quot;&#x4F60;&#x7684;&#x63A5;&#x53E3;&#x524D;&#x7F00;&quot;;</span><br><span class="line">export default{</span><br><span class="line">	myList:`${API}&#x8FD9;&#x91CC;&#x63A5;&#x4F60;&#x7684;&#x63A5;&#x53E3;&#x5BF9;&#x5E94;&#x529F;&#x80FD;url&#x7684;&#x540E;&#x7F00;`,//&#x7C7B;&#x4F3C;&#x4E8E;mylist&#x8FD9;&#x6837;&#xFF0C;&#x4EE5;&#x529F;&#x80FD;&#x547D;&#x540D;</span><br><span class="line">	sendInfo:info=&gt;{`${API}&#x8FD9;&#x91CC;&#x63A5;&#x4F60;&#x7684;&#x63A5;&#x53E3;&#x5BF9;&#x5E94;&#x529F;&#x80FD;url&#x7684;&#x540E;&#x7F00;/${info}`}//&#x4E5F;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#xFF0C;&#x4EE5;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x65B9;&#x5F0F;&#x8FD4;&#x56DE;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-&#x521B;&#x5EFA;service-js&#x6587;&#x4EF6;"><a href="#3-&#x521B;&#x5EFA;service-js&#x6587;&#x4EF6;" class="headerlink" title="3.&#x521B;&#x5EFA;service.js&#x6587;&#x4EF6;"></a>3.&#x521B;&#x5EFA;service.js&#x6587;&#x4EF6;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import API from &quot;./api&quot;;</span><br><span class="line">import Axios from &quot;./axios&quot;;//&#x5F15;&#x5165;&#x521A;&#x521A;&#x521B;&#x5EFA;&#x7684;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;</span><br><span class="line"></span><br><span class="line">const Server={</span><br><span class="line">	mylist(){</span><br><span class="line">		return Axios.get(API.mylist);</span><br><span class="line">	},</span><br><span class="line">	sendInfo(params){</span><br><span class="line">		let info=params||&quot;&quot;;</span><br><span class="line">		return Axios.put(API.sendInfo(info));</span><br><span class="line">	}</span><br><span class="line">};</span><br><span class="line">export default Sever;</span><br></pre></td></tr></table></figure>
+
+<h1 id="&#x4EE5;&#x4E0A;&#x5C31;&#x662F;axios&#x7684;&#x5C01;&#x88C5;"><a href="#&#x4EE5;&#x4E0A;&#x5C31;&#x662F;axios&#x7684;&#x5C01;&#x88C5;" class="headerlink" title="&#x4EE5;&#x4E0A;&#x5C31;&#x662F;axios&#x7684;&#x5C01;&#x88C5;"></a>&#x4EE5;&#x4E0A;&#x5C31;&#x662F;axios&#x7684;&#x5C01;&#x88C5;</h1><p>&#x63A5;&#x4E0B;&#x6765;&#x4F8B;&#x4E3E;&#x5728;&#x7EC4;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Server.mylist()</span><br><span class="line">        .then(res =&gt; {</span><br><span class="line">          console.log(res);</span><br><span class="line">        })</span><br><span class="line">        .catch(err =&gt; {</span><br><span class="line">          console.log(err);</span><br><span class="line">        });</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://jeasonzone.github.io/2019/12/01/在Vue中封装axios/" title="在Vue中封装axios" target="_blank" rel="external">https://jeasonzone.github.io/2019/12/01/在Vue中封装axios/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/jeasonzone" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/jeasonzone" target="_blank"><span class="text-dark">Jeason</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
   
     
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
     
-      
-      
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2019" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2019
-            </a>
-            <!-- <a href="/archives/2019" class="archive-year">2019</a> -->
-          </h3>
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2019/11/17/web你该懂的东西/" title="web你该懂的东西"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div id="collapse2019" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2019">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/2019/11/17/web你该懂的东西/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-11-17T15:58:12.000Z" itemprop="datePublished">2019-11-17</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> web你该懂的东西
-</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-  
-    
-    
-    
-<a href="/2019/11/10/恩特打印/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-11-10T06:05:28.000Z" itemprop="datePublished">2019-11-10</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 恩特打印
-</a>
 
-
-  
-    
-    
-    
-<a href="/2019/11/08/傻瓜安装mysql/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-11-08T01:48:43.000Z" itemprop="datePublished">2019-11-08</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 傻瓜安装mysql
-</a>
-
-
-  
-    
-    
-    
-<a href="/2019/11/06/解决fetch请求跨域问题/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-11-06T08:04:20.000Z" itemprop="datePublished">2019-11-06</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 解决fetch请求跨域问题
-</a>
-
-
-  
-  
-    </div></div></div></section>
-  
-
-	    </div>
-  	</article>
-  	 	
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -483,6 +590,39 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
