@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>深入理解es6阅读笔记2 | Jeason-Blog</title>
+  <meta name="description" content="Set &amp;#x548C; MapSet &amp;#x548C; Map &amp;#x90FD;&amp;#x662F; ES6 &amp;#x4E2D;&amp;#x65B0;&amp;#x589E;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x7ED3;&amp;#x6784;&amp;#xFF0C;&amp;#x662F;&amp;#x5BF9;&amp;#x5F53;&amp;#x524D; JS &amp;#x6570;&amp;#x7EC4;&amp;#x548C;&amp;#x5BF9;&amp;#x8C6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解es6阅读笔记2">
+<meta property="og:url" content="https://jeasonzone.github.io/2020/02/27/深入理解es6阅读笔记2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Set &amp;#x548C; MapSet &amp;#x548C; Map &amp;#x90FD;&amp;#x662F; ES6 &amp;#x4E2D;&amp;#x65B0;&amp;#x589E;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x7ED3;&amp;#x6784;&amp;#xFF0C;&amp;#x662F;&amp;#x5BF9;&amp;#x5F53;&amp;#x524D; JS &amp;#x6570;&amp;#x7EC4;&amp;#x548C;&amp;#x5BF9;&amp;#x8C6">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-27T13:59:49.575Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入理解es6阅读笔记2">
+<meta name="twitter:description" content="Set &amp;#x548C; MapSet &amp;#x548C; Map &amp;#x90FD;&amp;#x662F; ES6 &amp;#x4E2D;&amp;#x65B0;&amp;#x589E;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x7ED3;&amp;#x6784;&amp;#xFF0C;&amp;#x662F;&amp;#x5BF9;&amp;#x5F53;&amp;#x524D; JS &amp;#x6570;&amp;#x7EC4;&amp;#x548C;&amp;#x5BF9;&amp;#x8C6">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://jeasonzone.github.io/2020/02/27/深入理解es6阅读笔记2/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center theme-green" itemscope itemtype="http://schema.org/WebPage">
+    <!-- <script type="text/javascript" src="/js/src/click_love.js"></script> -->
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/jeasonzone" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Jeason</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 湛江, 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jeasonzone" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/5020323540" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="https://github.com/jeasonzone" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎阁下!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ES6/">ES6</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/apply/">apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/call/">call</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/start/">start</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仓库同步/">仓库同步</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/屏幕缩放/">屏幕缩放</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/手写/">手写</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/打包/">打包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深拷贝/">深拷贝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/组件/">组件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域/">跨域</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/apply/" style="font-size: 13px;">apply</a> <a href="/tags/bind/" style="font-size: 13px;">bind</a> <a href="/tags/call/" style="font-size: 13px;">call</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/js/" style="font-size: 14px;">js</a> <a href="/tags/nginx/" style="font-size: 13px;">nginx</a> <a href="/tags/start/" style="font-size: 13px;">start</a> <a href="/tags/vue/" style="font-size: 13px;">vue</a> <a href="/tags/webpack/" style="font-size: 13px;">webpack</a> <a href="/tags/仓库同步/" style="font-size: 13px;">仓库同步</a> <a href="/tags/动画/" style="font-size: 14px;">动画</a> <a href="/tags/屏幕缩放/" style="font-size: 13px;">屏幕缩放</a> <a href="/tags/手写/" style="font-size: 14px;">手写</a> <a href="/tags/打包/" style="font-size: 13px;">打包</a> <a href="/tags/深拷贝/" style="font-size: 13px;">深拷贝</a> <a href="/tags/组件/" style="font-size: 13px;">组件</a> <a href="/tags/跨域/" style="font-size: 14px;">跨域</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">12</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/ES6/">ES6</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/02/27/深入理解es6阅读笔记2/" class="title">深入理解es6阅读笔记2</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-27T13:49:01.000Z" itemprop="datePublished">2020-02-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/ES6/">ES6</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/02/25/深入理解ES6阅读笔记/" class="title">深入理解ES6阅读笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-25T13:31:33.000Z" itemprop="datePublished">2020-02-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Vue/">Vue</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/02/06/vue项目中登录验证/" class="title">vue项目中登录验证</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-06T04:33:23.000Z" itemprop="datePublished">2020-02-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Vue/">Vue</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/12/23/在Vue中使用VUEX/" class="title">在Vue中使用VUEX</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-12-23T02:50:26.000Z" itemprop="datePublished">2019-12-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Vue/">Vue</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/12/01/在Vue中封装axios/" class="title">在Vue中封装axios</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-12-01T05:40:19.000Z" itemprop="datePublished">2019-12-01</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-深入理解es6阅读笔记2" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      深入理解es6阅读笔记2
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/02/27/深入理解es6阅读笔记2/" class="article-date">
+	  <time datetime="2020-02-27T13:49:01.000Z" itemprop="datePublished">2020-02-27</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/ES6/">ES6</a>
+  </span>
+
+        
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/02/27/深入理解es6阅读笔记2/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="Set-&#x548C;-Map"><a href="#Set-&#x548C;-Map" class="headerlink" title="Set &#x548C; Map"></a>Set &#x548C; Map</h3><p>Set &#x548C; Map &#x90FD;&#x662F; ES6 &#x4E2D;&#x65B0;&#x589E;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x662F;&#x5BF9;&#x5F53;&#x524D; JS &#x6570;&#x7EC4;&#x548C;&#x5BF9;&#x8C61;&#x8FD9;&#x4E24;&#x79CD;&#x91CD;&#x8981;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x6269;&#x5C55;&#x3002;&#x7531;&#x4E8E;&#x662F;&#x65B0;&#x589E;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x76EE;&#x524D;&#x5C1A;&#x672A;&#x88AB;&#x5927;&#x89C4;&#x6A21;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x4F5C;&#x4E3A;&#x524D;&#x7AEF;&#x7A0B;&#x5E8F;&#x5458;&#xFF0C;&#x63D0;&#x524D;&#x4E86;&#x89E3;&#x662F;&#x5FC5;&#x987B;&#x505A;&#x5230;&#x7684;&#x3002;&#x5148;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#x4E24;&#x8005;&#x6700;&#x5173;&#x952E;&#x7684;&#x5730;&#x65B9;&#xFF1A;</p>
+<ul>
+<li>Set &#x7C7B;&#x4F3C;&#x4E8E;&#x6570;&#x7EC4;&#xFF0C;&#x4F46;&#x6570;&#x7EC4;&#x53EF;&#x4EE5;&#x5141;&#x8BB8;&#x5143;&#x7D20;&#x91CD;&#x590D;&#xFF0C;Set &#x4E0D;&#x5141;&#x8BB8;&#x5143;&#x7D20;&#x91CD;&#x590D;</li>
+<li>Map &#x7C7B;&#x4F3C;&#x4E8E;&#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x666E;&#x901A;&#x5BF9;&#x8C61;&#x7684; key &#x5FC5;&#x987B;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;&#x6570;&#x5B57;&#xFF0C;&#x800C; Map &#x7684; key &#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x7C7B;&#x578B;</li>
+</ul>
+<p><strong>Set</strong></p>
+<p>Set &#x5B9E;&#x4F8B;&#x4E0D;&#x5141;&#x8BB8;&#x5143;&#x7D20;&#x6709;&#x91CD;&#x590D;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x8BC1;&#x660E;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A; Set &#x5B9E;&#x4F8B;&#xFF0C;&#x6216;&#x8005;&#x901A;&#x8FC7;<code>add</code>&#x6DFB;&#x52A0;&#x5143;&#x7D20;&#xFF0C;&#x5143;&#x7D20;&#x4E0D;&#x80FD;&#x91CD;&#x590D;&#xFF0C;&#x91CD;&#x590D;&#x7684;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x4F8B;1</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">set</span> = new Set([1, 2, 3, 4, 4]);</span><br><span class="line">console.log(<span class="keyword">set</span>) // Set(4)&#xA0;{<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>}</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x4F8B;2</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">set</span> = new Set();</span><br><span class="line">[2, 3, 5, 4, 5, 8, 8].forEach(item =&gt; <span class="keyword">set</span>.add(item));</span><br><span class="line">for (let item of <span class="keyword">set</span>) {</span><br><span class="line">  <span class="built_in">console</span>.log(item);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 2 3 5 4 8</span></span><br></pre></td></tr></table></figure>
+
+<p>Set &#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x6709;</p>
+<ul>
+<li><code>size</code>&#xFF1A;&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x6570;&#x91CF;&#x3002;</li>
+<li><code>add(value)</code>&#xFF1A;&#x6DFB;&#x52A0;&#x5143;&#x7D20;&#xFF0C;&#x8FD4;&#x56DE; Set &#x5B9E;&#x4F8B;&#x672C;&#x8EAB;&#x3002;</li>
+<li><code>delete(value)</code>&#xFF1A;&#x5220;&#x9664;&#x5143;&#x7D20;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x5220;&#x9664;&#x662F;&#x5426;&#x6210;&#x529F;&#x3002;</li>
+<li><code>has(value)</code>&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x503C;&#x662F;&#x5426;&#x662F; Set &#x5B9E;&#x4F8B;&#x7684;&#x5143;&#x7D20;&#x3002;</li>
+<li><code>clear()</code>&#xFF1A;&#x6E05;&#x9664;&#x6240;&#x6709;&#x5143;&#x7D20;&#xFF0C;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#x3002;</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">s.add(<span class="number">1</span>).add(<span class="number">2</span>).add(<span class="number">2</span>); <span class="comment">// &#x6DFB;&#x52A0;&#x5143;&#x7D20;</span></span><br><span class="line"></span><br><span class="line">s.size <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">s.has(<span class="number">1</span>) <span class="comment">// true</span></span><br><span class="line">s.has(<span class="number">2</span>) <span class="comment">// true</span></span><br><span class="line">s.has(<span class="number">3</span>) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">s.delete(<span class="number">2</span>);</span><br><span class="line">s.has(<span class="number">2</span>) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">s.clear();</span><br><span class="line"><span class="built_in">console</span>.log(s);  <span class="comment">// Set(0)&#xA0;{}</span></span><br></pre></td></tr></table></figure>
+
+<p>Set &#x5B9E;&#x4F8B;&#x7684;&#x904D;&#x5386;&#xFF0C;&#x53EF;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x65B9;&#x6CD5;</p>
+<ul>
+<li><code>keys()</code>&#xFF1A;&#x8FD4;&#x56DE;&#x952E;&#x540D;&#x7684;&#x904D;&#x5386;&#x5668;&#x3002;</li>
+<li><code>values()</code>&#xFF1A;&#x8FD4;&#x56DE;&#x952E;&#x503C;&#x7684;&#x904D;&#x5386;&#x5668;&#x3002;&#x4E0D;&#x8FC7;&#x7531;&#x4E8E; Set &#x7ED3;&#x6784;&#x6CA1;&#x6709;&#x952E;&#x540D;&#xFF0C;&#x53EA;&#x6709;&#x952E;&#x503C;&#xFF08;&#x6216;&#x8005;&#x8BF4;&#x952E;&#x540D;&#x548C;&#x952E;&#x503C;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x503C;&#xFF09;&#xFF0C;&#x6240;&#x4EE5;<code>keys()</code>&#x548C;<code>values()</code>&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E00;&#x81F4;&#x3002;</li>
+<li><code>entries()</code>&#xFF1A;&#x8FD4;&#x56DE;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x904D;&#x5386;&#x5668;&#x3002;</li>
+<li><code>forEach()</code>&#xFF1A;&#x4F7F;&#x7528;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x904D;&#x5386;&#x6BCF;&#x4E2A;&#x6210;&#x5458;&#x3002;</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">set</span> = new Set([&apos;aaa&apos;, &apos;bbb&apos;, &apos;ccc&apos;]);</span><br><span class="line"></span><br><span class="line">for (let item of <span class="keyword">set</span>.keys()) {</span><br><span class="line">  <span class="built_in">console</span>.log(item);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// aaa</span></span><br><span class="line"><span class="comment">// bbb</span></span><br><span class="line"><span class="comment">// ccc</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> <span class="keyword">set</span>.values()) {</span><br><span class="line">  <span class="built_in">console</span>.log(item);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// aaa</span></span><br><span class="line"><span class="comment">// bbb</span></span><br><span class="line"><span class="comment">// ccc</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> <span class="keyword">set</span>.entries()) {</span><br><span class="line">  <span class="built_in">console</span>.log(item);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// [&quot;aaa&quot;, &quot;aaa&quot;]</span></span><br><span class="line"><span class="comment">// [&quot;bbb&quot;, &quot;bbb&quot;]</span></span><br><span class="line"><span class="comment">// [&quot;ccc&quot;, &quot;ccc&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>.forEach((value, key) =&gt; console.log(key + &apos; : &apos; + value))</span><br><span class="line">// aaa : aaa</span><br><span class="line">// bbb : bbb</span><br><span class="line">// ccc : ccc</span><br></pre></td></tr></table></figure>
+
+<p><strong>Map</strong></p>
+<p>Map &#x7684;&#x7528;&#x6CD5;&#x548C;&#x666E;&#x901A;&#x5BF9;&#x8C61;&#x57FA;&#x672C;&#x4E00;&#x81F4;&#xFF0C;&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x5B83;&#x80FD;&#x7528;&#x975E;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;&#x6570;&#x5B57;&#x4F5C;&#x4E3A; key &#x7684;&#x7279;&#x6027;&#x3002;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"><span class="keyword">const</span> obj = {<span class="attr">p</span>: <span class="string">&apos;Hello World&apos;</span>};</span><br><span class="line"></span><br><span class="line">map.set(obj, <span class="string">&apos;OK&apos;</span>)</span><br><span class="line">map.get(obj) <span class="comment">// &quot;OK&quot;</span></span><br><span class="line"></span><br><span class="line">map.has(obj) <span class="comment">// true</span></span><br><span class="line">map.delete(obj) <span class="comment">// true</span></span><br><span class="line">map.has(obj) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>&#x9700;&#x8981;&#x4F7F;&#x7528;<code>new Map()</code>&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x4E2D;<code>set</code> <code>get</code> <code>has</code> <code>delete</code>&#x987E;&#x540D;&#x5373;&#x53EF;&#x601D;&#x4E49;&#xFF08;&#x4E0B;&#x6587;&#x4E5F;&#x4F1A;&#x6F14;&#x793A;&#xFF09;&#x3002;&#x5176;&#x4E2D;&#xFF0C;<code>map.set(obj, &apos;OK&apos;)</code>&#x5C31;&#x662F;&#x7528;&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x7684; key &#xFF08;&#x4E0D;&#x5149;&#x53EF;&#x4EE5;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x90FD;&#x53EF;&#x4EE5;&#xFF09;&#xFF0C;&#x5E76;&#x4E14;&#x540E;&#x9762;&#x901A;&#x8FC7;<code>map.get(obj)</code>&#x6B63;&#x786E;&#x83B7;&#x53D6;&#x4E86;&#x3002;</p>
+<p>Map &#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li><code>size</code>&#xFF1A;&#x83B7;&#x53D6;&#x6210;&#x5458;&#x7684;&#x6570;&#x91CF;</li>
+<li><code>set</code>&#xFF1A;&#x8BBE;&#x7F6E;&#x6210;&#x5458; key &#x548C; value</li>
+<li><code>get</code>&#xFF1A;&#x83B7;&#x53D6;&#x6210;&#x5458;&#x5C5E;&#x6027;&#x503C;</li>
+<li><code>has</code>&#xFF1A;&#x5224;&#x65AD;&#x6210;&#x5458;&#x662F;&#x5426;&#x5B58;&#x5728;</li>
+<li><code>delete</code>&#xFF1A;&#x5220;&#x9664;&#x6210;&#x5458;</li>
+<li><code>clear</code>&#xFF1A;&#x6E05;&#x7A7A;&#x6240;&#x6709;</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">map.set(<span class="string">&apos;aaa&apos;</span>, <span class="number">100</span>);</span><br><span class="line">map.set(<span class="string">&apos;bbb&apos;</span>, <span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">map.size <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">map.get(<span class="string">&apos;aaa&apos;</span>) <span class="comment">// 100</span></span><br><span class="line"></span><br><span class="line">map.has(<span class="string">&apos;aaa&apos;</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">map.delete(<span class="string">&apos;aaa&apos;</span>)</span><br><span class="line">map.has(<span class="string">&apos;aaa&apos;</span>) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">map.clear()</span><br></pre></td></tr></table></figure>
+
+<p>Map &#x5B9E;&#x4F8B;&#x7684;&#x904D;&#x5386;&#x65B9;&#x6CD5;&#x6709;&#xFF1A;</p>
+<ul>
+<li><code>keys()</code>&#xFF1A;&#x8FD4;&#x56DE;&#x952E;&#x540D;&#x7684;&#x904D;&#x5386;&#x5668;&#x3002;</li>
+<li><code>values()</code>&#xFF1A;&#x8FD4;&#x56DE;&#x952E;&#x503C;&#x7684;&#x904D;&#x5386;&#x5668;&#x3002;</li>
+<li><code>entries()</code>&#xFF1A;&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x6210;&#x5458;&#x7684;&#x904D;&#x5386;&#x5668;&#x3002;</li>
+<li><code>forEach()</code>&#xFF1A;&#x904D;&#x5386; Map &#x7684;&#x6240;&#x6709;&#x6210;&#x5458;&#x3002;</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">map.set(<span class="string">&apos;aaa&apos;</span>, <span class="number">100</span>);</span><br><span class="line">map.set(<span class="string">&apos;bbb&apos;</span>, <span class="number">200</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> map.keys()) {</span><br><span class="line">  <span class="built_in">console</span>.log(key);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// &quot;aaa&quot;</span></span><br><span class="line"><span class="comment">// &quot;bbb&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> map.values()) {</span><br><span class="line">  <span class="built_in">console</span>.log(value);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 100</span></span><br><span class="line"><span class="comment">// 200</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> map.entries()) {</span><br><span class="line">  <span class="built_in">console</span>.log(item[<span class="number">0</span>], item[<span class="number">1</span>]);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// aaa 100</span></span><br><span class="line"><span class="comment">// bbb 200</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x6216;&#x8005;</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> map.entries()) {</span><br><span class="line">  <span class="built_in">console</span>.log(key, value);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// aaa 100</span></span><br><span class="line"><span class="comment">// bbb 200</span></span><br></pre></td></tr></table></figure>
+
+<h3 id><a href="#" class="headerlink" title></a></h3><h3 id="Iterator-&#x7684;&#x4F5C;&#x7528;&#x6709;&#x4E09;&#x4E2A;&#xFF1A;&#xFF08;&#x8FD9;&#x90E8;&#x5206;&#x5F85;&#x8865;&#x5145;&#xFF09;"><a href="#Iterator-&#x7684;&#x4F5C;&#x7528;&#x6709;&#x4E09;&#x4E2A;&#xFF1A;&#xFF08;&#x8FD9;&#x90E8;&#x5206;&#x5F85;&#x8865;&#x5145;&#xFF09;" class="headerlink" title="Iterator &#x7684;&#x4F5C;&#x7528;&#x6709;&#x4E09;&#x4E2A;&#xFF1A;&#xFF08;&#x8FD9;&#x90E8;&#x5206;&#x5F85;&#x8865;&#x5145;&#xFF09;"></a>Iterator &#x7684;&#x4F5C;&#x7528;&#x6709;&#x4E09;&#x4E2A;&#xFF1A;&#xFF08;&#x8FD9;&#x90E8;&#x5206;&#x5F85;&#x8865;&#x5145;&#xFF09;</h3><p>1.&#x5404;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C; &#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x7EDF;&#x4E00;&#x7684;&#x3001; &#x7B80;&#x4FBF;&#x7684;&#x8BBF;&#x95EE;&#x63A5;&#x53E3;&#x3002;</p>
+<p>2.&#x4F7F;&#x5F97;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x6210;&#x5458;&#x80FD;&#x591F;&#x6309;&#x67D0;&#x79CD;&#x6B21;&#x5E8F;&#x6392;&#x5217;&#x3002;</p>
+<p>3.ES6 &#x521B;&#x9020;&#x4E86;&#x4E00;&#x79CD;&#x65B0;&#x7684;&#x904D;&#x5386;&#x547D;&#x4EE4;for&#x2026;of&#x5FAA;&#x73AF;&#xFF0C; Iterator &#x63A5;&#x53E3;&#x4E3B;&#x8981;&#x4F9B;for&#x2026;of&#x6D88;&#x8D39;&#x3002;</p>
+<p>&#x57FA;&#x672C;&#x7528;&#x6CD5;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let arr = [&apos;aaa&apos;,&apos;bbb&apos;];</span><br><span class="line">let map = arr[Symbol.iterator]();</span><br><span class="line">console.log(map.next());//{value: &quot;aaa&quot;, done: false} done&#x662F;&#x8BF4;&#x660E;&#x8FD9;&#x4E2A;&#x5FAA;&#x73AF;&#x662F;&#x4E0D;&#x662F;&#x8FD8;&#x6709;&#x4E0B;&#x4E00;&#x6B65;&#x72B6;&#x6001;</span><br><span class="line">console.log(map.next());//{value: &quot;bbb&quot;, done: false}</span><br><span class="line">console.log(map.next());//{value: undefined, done: true}</span><br></pre></td></tr></table></figure>
+
+<h4 id="&#x8BBF;&#x95EE;&#x53EF;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;&#x7684;&#x9ED8;&#x8BA4;&#x7684;&#x8FED;&#x4EE3;&#x5668;"><a href="#&#x8BBF;&#x95EE;&#x53EF;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;&#x7684;&#x9ED8;&#x8BA4;&#x7684;&#x8FED;&#x4EE3;&#x5668;" class="headerlink" title="&#x8BBF;&#x95EE;&#x53EF;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;&#x7684;&#x9ED8;&#x8BA4;&#x7684;&#x8FED;&#x4EE3;&#x5668;"></a>&#x8BBF;&#x95EE;&#x53EF;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;&#x7684;&#x9ED8;&#x8BA4;&#x7684;&#x8FED;&#x4EE3;&#x5668;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let values = [1,2,3];</span><br><span class="line">let iterator = values[Symbol.iterator]();</span><br><span class="line"></span><br><span class="line">console.log(iterator.next());</span><br><span class="line">console.log(iterator.next());</span><br><span class="line">console.log(iterator.next());</span><br><span class="line">console.log(iterator.next());</span><br><span class="line"></span><br><span class="line">//&#x8FD0;&#x884C;&#x7ED3;&#x679C;</span><br><span class="line"></span><br><span class="line">//{value: 1, done: false}</span><br><span class="line">//VM57:5 {value: 2, done: false}</span><br><span class="line">//VM57:6 {value: 3, done: false}</span><br><span class="line">//VM57:7 {value: undefined, done: true}</span><br></pre></td></tr></table></figure>
+
+<h3 id="&#x521B;&#x5EFA;&#x53EF;&#x4EE5;&#x8FED;&#x4EE3;&#x7684;&#x5BF9;&#x8C61;"><a href="#&#x521B;&#x5EFA;&#x53EF;&#x4EE5;&#x8FED;&#x4EE3;&#x7684;&#x5BF9;&#x8C61;" class="headerlink" title="&#x521B;&#x5EFA;&#x53EF;&#x4EE5;&#x8FED;&#x4EE3;&#x7684;&#x5BF9;&#x8C61;"></a>&#x521B;&#x5EFA;&#x53EF;&#x4EE5;&#x8FED;&#x4EE3;&#x7684;&#x5BF9;&#x8C61;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let arr = {</span><br><span class="line">      items:[],</span><br><span class="line">      *[Symbol.iterator](){</span><br><span class="line">          for(let item of this.items){</span><br><span class="line">        yield item;</span><br><span class="line">                                                        }</span><br><span class="line">                                            }</span><br><span class="line">}</span><br><span class="line">let a = [1,2,3];</span><br><span class="line">a.forEach(value =&gt; arr.items.push(value));</span><br><span class="line"></span><br><span class="line">for(let x of arr){</span><br><span class="line">      console.log(x);</span><br><span class="line"> }</span><br><span class="line">// 1</span><br><span class="line">//2</span><br><span class="line">//3</span><br></pre></td></tr></table></figure>
+
+<h3 id="&#x589E;&#x5F3A;&#x6570;&#x7EC4;&#x7528;&#x6CD5;"><a href="#&#x589E;&#x5F3A;&#x6570;&#x7EC4;&#x7528;&#x6CD5;" class="headerlink" title="&#x589E;&#x5F3A;&#x6570;&#x7EC4;&#x7528;&#x6CD5;"></a>&#x589E;&#x5F3A;&#x6570;&#x7EC4;&#x7528;&#x6CD5;</h3><p>&#x521B;&#x5EFA;&#x6570;&#x7EC4;&#xFF1A;Array.of()&#x3001;Array.from()</p>
+<p>Array.of() &#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x6240;&#x6709;&#x4F20;&#x5165;&#x53C2;&#x6570;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x800C;&#x4E0D;&#x7BA1;&#x53C2;&#x6570;&#x7684;&#x6570;&#x91CF;&#x4E0E;&#x7C7B;&#x578B;&#xFF1B;</p>
+<p>Array.from()&#x662F;&#x5C06;&#x7C7B;&#x6570;&#x7EC4;&#x8F6C;&#x6362;&#x6210;&#x6570;&#x7EC4;</p>
+<p>&#x6620;&#x5C04;&#x8F6C;&#x6362;&#xFF1A;</p>
+<p>Array.from(arg1, arg2)&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7ED9;&#x8BE5;&#x65B9;&#x6CD5;&#x63D0;&#x4F9B;2&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x8F6C;&#x6362;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function translate() {</span><br><span class="line">    return Array.from(arguments, (value) =&gt; value + 1);</span><br><span class="line">}</span><br><span class="line">let numbers = translate(1, 2, 3);</span><br><span class="line">console.log(numbers); // 2,3,4</span><br></pre></td></tr></table></figure>
+
+<p>Array.from&#x8FD8;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6307;&#x5B9A;this</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let helper = {</span><br><span class="line">    diff: 1,</span><br><span class="line">    add(value) {</span><br><span class="line">        return value + this.diff;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line">function translate() {</span><br><span class="line">    return Array.from(arguments, helper.add, helper);</span><br><span class="line">}</span><br><span class="line">let numbers = translate(1, 2, 3);</span><br><span class="line">console.log(numbers); // 2,3,4</span><br></pre></td></tr></table></figure>
+
+<p>find() &#x4E0E; findIndex() &#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>find() &#x4E0E; findIndex() &#x65B9;&#x6CD5;&#x5747;&#x63A5;&#x53D7;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3001;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x503C;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684; this &#x3002;<br>&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x53EF;&#x63A5;&#x6536;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x6570;&#x7EC4;&#x7684;&#x67D0;&#x4E2A;&#x5143;&#x7D20;&#x3001;&#x8BE5;&#x5143;&#x7D20;&#x5BF9;&#x5E94;&#x7684;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E;&#x3001;&#x4EE5;&#x53CA;&#x8BE5;&#x6570;&#x7EC4;&#x81EA;&#x8EAB;&#x3002;<br>&#x4E8C;&#x8005;&#x552F;&#x4E00;&#x7684;&#x533A;&#x522B;&#x662F;&#xFF1A; find() &#x65B9;&#x6CD5;&#x4F1A;&#x8FD4;&#x56DE;&#x5339;&#x914D;&#x7684;&#x503C;&#xFF0C;&#x800C; findIndex() &#x65B9;&#x6CD5;&#x5219;&#x4F1A;&#x8FD4;&#x56DE;&#x5339;&#x914D;&#x4F4D;&#x7F6E;&#x7684;&#x7D22;&#x5F15;&#x3002;</p>
+<p>&#x793A;&#x4F8B;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let numbers = [25, 30, 35, 40, 45];</span><br><span class="line">console.log(numbers.find(n =&gt; n &gt; 33)); // 35</span><br><span class="line">console.log(numbers.findIndex(n =&gt; n &gt; 33)); // 2</span><br></pre></td></tr></table></figure>
+
+<p>fill() &#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>&#x7528;&#x65B0;&#x5143;&#x7D20;&#x66FF;&#x6362;&#x6389;&#x6570;&#x7EC4;&#x5185;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x66FF;&#x6362;&#x4E0B;&#x6807;&#x8303;&#x56F4;&#xFF1A;arr.fill(value, start, end)</p>
+<p>&#x793A;&#x4F8B;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let numbers = [1, 2, 3, 4];</span><br><span class="line">numbers.fill(1);</span><br><span class="line">console.log(numbers.toString()); // 1,1,1,1</span><br><span class="line">let numbers = [1, 2, 3, 4];</span><br><span class="line">numbers.fill(1, 2);</span><br><span class="line">console.log(numbers.toString()); // 1,2,1,1</span><br><span class="line">numbers.fill(0, 1, 3);</span><br><span class="line">console.log(numbers.toString()); // 1,0,0,1</span><br></pre></td></tr></table></figure>
+
+<p>copyWithin() &#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>&#x9009;&#x62E9;&#x6570;&#x7EC4;&#x7684;&#x67D0;&#x4E2A;&#x4E0B;&#x6807;&#xFF0C;&#x4ECE;&#x8BE5;&#x4F4D;&#x7F6E;&#x5F00;&#x59CB;&#x590D;&#x5236;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#xFF0C;&#x9ED8;&#x8BA4;&#x4ECE;0&#x5F00;&#x59CB;&#x590D;&#x5236;&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x8981;&#x590D;&#x5236;&#x7684;&#x5143;&#x7D20;&#x8303;&#x56F4;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let numbers = [1, 2, 3, 4];</span><br><span class="line">// &#x4ECE;&#x7D22;&#x5F15; 2 &#x7684;&#x4F4D;&#x7F6E;&#x5F00;&#x59CB;&#x7C98;&#x8D34;</span><br><span class="line">// &#x4ECE;&#x6570;&#x7EC4;&#x7D22;&#x5F15; 0 &#x7684;&#x4F4D;&#x7F6E;&#x5F00;&#x59CB;&#x590D;&#x5236;&#x6570;&#x636E;</span><br><span class="line">numbers.copyWithin(2, 0);</span><br><span class="line">console.log(numbers.toString()); // 1,2,1,2</span><br><span class="line"></span><br><span class="line">let numbers = [1, 2, 3, 4];</span><br><span class="line">// &#x4ECE;&#x7D22;&#x5F15; 2 &#x7684;&#x4F4D;&#x7F6E;&#x5F00;&#x59CB;&#x7C98;&#x8D34;</span><br><span class="line">// &#x4ECE;&#x6570;&#x7EC4;&#x7D22;&#x5F15; 0 &#x7684;&#x4F4D;&#x7F6E;&#x5F00;&#x59CB;&#x590D;&#x5236;&#x6570;&#x636E;</span><br><span class="line">// &#x5728;&#x9047;&#x5230;&#x7D22;&#x5F15; 1 &#x65F6;&#x505C;&#x6B62;&#x590D;&#x5236;</span><br><span class="line">numbers.copyWithin(2, 0, 1);</span><br><span class="line">console.log(numbers.toString()); // 1,2,1,4</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://jeasonzone.github.io/2020/02/27/深入理解es6阅读笔记2/" title="深入理解es6阅读笔记2" target="_blank" rel="external">https://jeasonzone.github.io/2020/02/27/深入理解es6阅读笔记2/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/jeasonzone" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/jeasonzone" target="_blank"><span class="text-dark">Jeason</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2020/02/25/深入理解ES6阅读笔记/" title="深入理解ES6阅读笔记"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+    
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jeasonzone" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/5020323540" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="https://github.com/jeasonzone" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+
+    <div class="copyright">
+        
+        Design by <a href="https://github.com/jeasonzone" target="_blank"> Jeason </a>.
+        <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+            本站访客数:<span id="busuanzi_value_site_uv"></span>
+        </span>
+
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:jeasonzone.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>
